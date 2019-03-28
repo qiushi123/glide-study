@@ -48,6 +48,9 @@ import java.util.concurrent.CopyOnWriteArrayList;
  * instantiating a new object, or to take advantage built in Activity and Fragment lifecycle
  * handling, use the static Glide.load methods with your Fragment or Activity.
  *
+ * 用于管理和启动Glide请求的类。可以使用活动、片段和连接的生命周期事件，智能地停止、启动和重启请求。检索通过
+ * 实例化一个新对象，或者利用活动和片段生命周期内构建的优势操作时，使用静态Glide。用片段或活动加载方法
+ *
  * @see Glide#with(android.app.Activity)
  * @see Glide#with(android.support.v4.app.FragmentActivity)
  * @see Glide#with(android.app.Fragment)

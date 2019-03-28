@@ -32,6 +32,7 @@ import java.util.Map;
 /**
  * A collection of static methods for creating new {@link com.bumptech.glide.RequestManager}s or
  * retrieving existing ones from activities and fragment.
+ *
  */
 public class RequestManagerRetriever implements Handler.Callback {
   @VisibleForTesting

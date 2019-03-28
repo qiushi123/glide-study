@@ -224,7 +224,7 @@ public class Glide implements ComponentCallbacks2 {
   }
 
   /*
-   * 初始化glide。
+   * 初始化glide
    * */
   @SuppressWarnings("deprecation")
   private static void initializeGlide(@NonNull Context context, @NonNull GlideBuilder builder) {
