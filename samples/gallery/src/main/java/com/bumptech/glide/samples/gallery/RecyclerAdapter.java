@@ -55,7 +55,7 @@ class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ListViewHolde
         @Override
         public boolean onPreDraw() {
           if (actualDimensions == null) {
-            actualDimensions = new int[] { view.getWidth(), view.getHeight() };
+            actualDimensions = new int[]{view.getWidth(), view.getHeight()};
           }
           view.getViewTreeObserver().removeOnPreDrawListener(this);
           return true;
@@ -99,8 +99,8 @@ class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ListViewHolde
   @Override
   public List<MediaStoreData> getPreloadItems(int position) {
     return data.isEmpty()
-            ? Collections.<MediaStoreData>emptyList()
-            : Collections.singletonList(data.get(position));
+        ? Collections.<MediaStoreData>emptyList()
+        : Collections.singletonList(data.get(position));
   }
 
   @Nullable
@@ -132,8 +132,7 @@ class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ListViewHolde
   }
 
   /**
-   * ViewHolder containing views to display individual {@link
-   * com.bumptech.glide.samples.gallery.MediaStoreData}.
+   * ViewHolder
    */
   static final class ListViewHolder extends RecyclerView.ViewHolder {
 

@@ -96,9 +96,9 @@ import java.util.Map;
 import java.util.Set;
 
 /**
- * A singleton to present a simple static interface for building requests with
- * {@link RequestBuilder} and maintaining an {@link Engine}, {@link BitmapPool},
- * {@link com.bumptech.glide.load.engine.cache.DiskCache} and {@link MemoryCache}.
+ * A singleton to present a simple static interface for building requests with {@link
+ * RequestBuilder} and maintaining an {@link Engine}, {@link BitmapPool}, {@link
+ * com.bumptech.glide.load.engine.cache.DiskCache} and {@link MemoryCache}.
  */
 public class Glide implements ComponentCallbacks2 {
   private static final String DEFAULT_DISK_CACHE_DIR = "image_manager_disk_cache";
@@ -186,8 +186,8 @@ public class Glide implements ComponentCallbacks2 {
   }
 
   /**
-   * @deprecated Use {@link #init(Context, GlideBuilder)} to get a singleton compatible with
-   * Glide's generated API.
+   * @deprecated Use {@link #init(Context, GlideBuilder)} to get a singleton compatible with Glide's
+   * generated API.
    *
    * <p>This method will be removed in a future version of Glide.
    */
@@ -223,6 +223,9 @@ public class Glide implements ComponentCallbacks2 {
     initializeGlide(context, new GlideBuilder());
   }
 
+  /*
+   * 初始化glide。
+   * */
   @SuppressWarnings("deprecation")
   private static void initializeGlide(@NonNull Context context, @NonNull GlideBuilder builder) {
     Context applicationContext = context.getApplicationContext();
@@ -300,7 +303,7 @@ public class Glide implements ComponentCallbacks2 {
             + " in your application and a @GlideModule annotated AppGlideModule implementation or"
             + " LibraryGlideModules will be silently ignored");
       }
-    // These exceptions can't be squashed across all versions of Android.
+      // These exceptions can't be squashed across all versions of Android.
     } catch (InstantiationException e) {
       throwIncorrectGlideModule(e);
     } catch (IllegalAccessException e) {
@@ -491,7 +494,7 @@ public class Glide implements ComponentCallbacks2 {
         .append(
             Uri.class,
             ParcelFileDescriptor.class,
-             new UriLoader.FileDescriptorFactory(contentResolver))
+            new UriLoader.FileDescriptorFactory(contentResolver))
         .append(
             Uri.class,
             AssetFileDescriptor.class,
@@ -548,9 +551,8 @@ public class Glide implements ComponentCallbacks2 {
    * serve any useful purpose. </p>
    *
    * <p> The primary reason this object is exposed is for use in custom
-   * {@link com.bumptech.glide.load.ResourceDecoder}s and
-   * {@link com.bumptech.glide.load.Transformation}s. Use outside of these classes is not generally
-   * recommended. </p>
+   * {@link com.bumptech.glide.load.ResourceDecoder}s and {@link com.bumptech.glide.load.Transformation}s.
+   * Use outside of these classes is not generally recommended. </p>
    */
   @NonNull
   public BitmapPool getBitmapPool() {
@@ -594,15 +596,14 @@ public class Glide implements ComponentCallbacks2 {
    *
    * <p> This method should be used with caution, overly aggressive pre-filling is substantially
    * worse than not pre-filling at all. Pre-filling should only be started in onCreate to avoid
-   * constantly clearing and re-filling the
-   * {@link com.bumptech.glide.load.engine.bitmap_recycle.BitmapPool}. Rotation should be carefully
-   * considered as well. It may be worth calling this method only when no saved instance state
-   * exists so that pre-filling only happens when the Activity is first created, rather than on
-   * every rotation. </p>
+   * constantly clearing and re-filling the {@link com.bumptech.glide.load.engine.bitmap_recycle.BitmapPool}.
+   * Rotation should be carefully considered as well. It may be worth calling this method only when
+   * no saved instance state exists so that pre-filling only happens when the Activity is first
+   * created, rather than on every rotation. </p>
    *
-   * @param bitmapAttributeBuilders The list of
-   * {@link com.bumptech.glide.load.engine.prefill.PreFillType.Builder Builders} representing
-   * individual sizes and configurations of {@link android.graphics.Bitmap}s to be pre-filled.
+   * @param bitmapAttributeBuilders The list of {@link com.bumptech.glide.load.engine.prefill.PreFillType.Builder
+   *                                Builders} representing individual sizes and configurations of
+   *                                {@link android.graphics.Bitmap}s to be pre-filled.
    */
   @SuppressWarnings("unused") // Public API
   public void preFillBitmapPool(@NonNull PreFillType.Builder... bitmapAttributeBuilders) {
@@ -642,7 +643,7 @@ public class Glide implements ComponentCallbacks2 {
    * Clears disk cache.
    *
    * <p>
-   *     This method should always be called on a background thread, since it is a blocking call.
+   * This method should always be called on a background thread, since it is a blocking call.
    * </p>
    */
   // Public API.
@@ -664,11 +665,11 @@ public class Glide implements ComponentCallbacks2 {
    * Adjusts Glide's current and maximum memory usage based on the given {@link MemoryCategory}.
    *
    * <p> The default {@link MemoryCategory} is {@link MemoryCategory#NORMAL}.
-   * {@link MemoryCategory#HIGH} increases Glide's maximum memory usage by up to 50% and
-   * {@link MemoryCategory#LOW} decreases Glide's maximum memory usage by 50%. This method should be
-   * used to temporarily increase or decrease memory usage for a single Activity or part of the app.
-   * Use {@link GlideBuilder#setMemoryCache(MemoryCache)} to put a permanent memory size if you want
-   * to change the default. </p>
+   * {@link MemoryCategory#HIGH} increases Glide's maximum memory usage by up to 50% and {@link
+   * MemoryCategory#LOW} decreases Glide's maximum memory usage by 50%. This method should be used
+   * to temporarily increase or decrease memory usage for a single Activity or part of the app. Use
+   * {@link GlideBuilder#setMemoryCache(MemoryCache)} to put a permanent memory size if you want to
+   * change the default. </p>
    *
    * @return the previous MemoryCategory used by Glide.
    */
@@ -737,9 +738,9 @@ public class Glide implements ComponentCallbacks2 {
   }
 
   /**
-   * Begin a load with Glide that will tied to the give
-   * {@link android.support.v4.app.FragmentActivity}'s lifecycle and that uses the given
-   * {@link android.support.v4.app.FragmentActivity}'s default options.
+   * Begin a load with Glide that will tied to the give {@link android.support.v4.app.FragmentActivity}'s
+   * lifecycle and that uses the given {@link android.support.v4.app.FragmentActivity}'s default
+   * options.
    *
    * @param activity The activity to use.
    * @return A RequestManager for the given FragmentActivity that can be used to start a load.
@@ -750,9 +751,8 @@ public class Glide implements ComponentCallbacks2 {
   }
 
   /**
-   * Begin a load with Glide that will be tied to the given
-   * {@link android.support.v4.app.Fragment}'s lifecycle and that uses the given
-   * {@link android.support.v4.app.Fragment}'s default options.
+   * Begin a load with Glide that will be tied to the given {@link android.support.v4.app.Fragment}'s
+   * lifecycle and that uses the given {@link android.support.v4.app.Fragment}'s default options.
    *
    * @param fragment The fragment to use.
    * @return A RequestManager for the given Fragment that can be used to start a load.
@@ -768,9 +768,8 @@ public class Glide implements ComponentCallbacks2 {
    *
    * @param fragment The fragment to use.
    * @return A RequestManager for the given Fragment that can be used to start a load.
-   * @deprecated Prefer support Fragments and {@link #with(Fragment)} instead,
-   * {@link android.app.Fragment} will be deprecated. See
-   * https://github.com/android/android-ktx/pull/161#issuecomment-363270555.
+   * @deprecated Prefer support Fragments and {@link #with(Fragment)} instead, {@link
+   * android.app.Fragment} will be deprecated. See https://github.com/android/android-ktx/pull/161#issuecomment-363270555.
    */
   @SuppressWarnings("deprecation")
   @Deprecated
@@ -780,8 +779,8 @@ public class Glide implements ComponentCallbacks2 {
   }
 
   /**
-   * Begin a load with Glide that will be tied to the lifecycle of the {@link Fragment},
-   * {@link android.app.Fragment}, or {@link Activity} that contains the View.
+   * Begin a load with Glide that will be tied to the lifecycle of the {@link Fragment}, {@link
+   * android.app.Fragment}, or {@link Activity} that contains the View.
    *
    * <p>A {@link Fragment} or {@link android.app.Fragment} is assumed to contain a View if the View
    * is a child of the View returned by the {@link Fragment#getView()}} method.
@@ -798,8 +797,8 @@ public class Glide implements ComponentCallbacks2 {
    * avoiding entirely or using the {@link Fragment}s from the support library instead.
    *
    * <p>If the support {@link FragmentActivity} class is used, this method will only attempt to
-   * discover support {@link Fragment}s. Any non-support {@link android.app.Fragment}s attached
-   * to the {@link FragmentActivity} will be ignored.
+   * discover support {@link Fragment}s. Any non-support {@link android.app.Fragment}s attached to
+   * the {@link FragmentActivity} will be ignored.
    *
    * @param view The view to search for a containing Fragment or Activity from.
    * @return A RequestManager that can be used to start a load.

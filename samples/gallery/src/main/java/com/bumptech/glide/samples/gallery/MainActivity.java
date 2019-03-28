@@ -35,11 +35,6 @@ public class MainActivity extends FragmentActivity {
     }
   }
 
-  private void requestStoragePermission() {
-     ActivityCompat.requestPermissions(this,
-        new String[]{permission.READ_EXTERNAL_STORAGE},
-        REQUEST_READ_STORAGE);
-  }
 
   private void replaceFragment() {
     Fragment fragment = new HorizontalGalleryFragment();
@@ -47,6 +42,16 @@ public class MainActivity extends FragmentActivity {
         .beginTransaction()
         .replace(R.id.fragment_container, fragment)
         .commit();
+  }
+
+
+  /*
+   * 询问权限相关
+   * */
+  private void requestStoragePermission() {
+    ActivityCompat.requestPermissions(this,
+        new String[]{permission.READ_EXTERNAL_STORAGE},
+        REQUEST_READ_STORAGE);
   }
 
   @Override
